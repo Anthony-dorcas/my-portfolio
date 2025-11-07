@@ -1,5 +1,6 @@
+ HEAD
 Dorcas Anthony - Luxury Portfolio (React + Vite)
-===============================================
+
 
 What’s included
 - React project structure (Vite) ready to paste into a Vite React project.
@@ -28,3 +29,7 @@ Contact form
 Notes
 - Replace demo image imports with your preferred assets or change filenames if needed.
 - Make sure to optimize images for production (convert to webp).
+
+# my-portfolio
+A modern and responsive personal portfolio built with React, showcasing my projects, skills, and creative designs.
+5ad0928783ffb70425125e7d8d41c367ab4914e2
