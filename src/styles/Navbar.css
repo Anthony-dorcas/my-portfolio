@@ -1,0 +1,197 @@
+/* .da-navbar{ position: fixed; top:0; left:0; right:0; height:72px; display:flex; align-items:center; z-index:999; transition: background 0.3s, box-shadow 0.3s; background: transparent; padding: 0 24px; }
+.da-navbar.scrolled{ background:var(--black-1); box-shadow: 0 2px 12px rgba(212,175,55,0.15); }
+.nav-inner{ max-width:1200px; margin:0 auto; width:100%; display:flex; justify-content:space-between; align-items:center; }
+.logo a{ font-family:'Playfair Display', serif; font-size:22px; color:var(--gold-1); }
+.logo span{ color:var(--white); margin-left:6px; font-weight:600; }
+.nav-links a{ font-family:'Inter', sans-serif; color:var(--white); margin-left:32px; text-decoration:none; position:relative; padding:6px 0; font-weight:500; }
+.nav-links a::after{ content:""; position:absolute; left:0; bottom:-8px; height:2px; width:0; background:var(--gold-1); transition: width .25s; }
+.nav-links a:hover::after{ width:100%; }
+.nav-links a.active{ color:var(--gold-1); }
+@media (max-width:800px){ .nav-links{ display:none; } .da-navbar{ height:64px; } } */
+
+
+:root {
+  --gold-1: #d4af37;
+  --black-1: #111;
+  --white: #fff;
+}
+
+/* ===== Base Navbar ===== */
+.da-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  z-index: 999;
+  background: transparent;
+  padding: 0 24px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.da-navbar.scrolled {
+  background: var(--black-1);
+  box-shadow: 0 2px 12px rgba(212, 175, 55, 0.15);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ===== Logo ===== */
+.logo a {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--gold-1);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.logo span {
+  color: var(--white);
+  margin-left: 6px;
+  font-weight: 600;
+}
+
+/* ===== Desktop Links ===== */
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  color: var(--white);
+  margin-left: 32px;
+  text-decoration: none;
+  position: relative;
+  padding: 6px 0;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  height: 2px;
+  width: 0;
+  background: var(--gold-1);
+  transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: var(--gold-1);
+}
+
+/* ===== Hamburger Menu ===== */
+/* ===== Hamburger Menu (Refined Style) ===== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  gap: 5px;
+  width: 28px;
+  height: 24px;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.05);
+}
+
+.bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle.open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.open .bar:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ===== Mobile Visibility ===== */
+@media (max-width: 800px) {
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+
+/* ===== Mobile Menu ===== */
+
+
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  background: var(--black-1);
+  position: absolute;
+  top: 72px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 0;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.4s ease-in-out;
+}
+
+.mobile-menu.active {
+  max-height: 500px; /* enough to show all links */
+  opacity: 1;
+  transform: translateY(0);
+  padding: 20px 0;
+}
+
+/* ===== Mobile Links ===== */
+.mobile-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 12px 0;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.mobile-menu a:hover {
+  color: var(--gold-1);
+}
+
+
+/* ===== Responsive ===== */
+@media (max-width: 800px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .da-navbar {
+    height: 64px;
+  }
+}
